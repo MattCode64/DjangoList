@@ -6,7 +6,19 @@ class CollectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Collection
         fields = '__all__'
-        # fields = ['id', 'title', 'slug']
+
+
+class CollectionCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Collection
+        fields = ['title']
+
+
+class CollectionDeleteSerializer(serializers.ModelSerializer):
+    # I want to delete with the title or id
+    class Meta:
+        model = Collection
+        fields = ['title']
 
 
 class TaskSerializer(serializers.ModelSerializer):
