@@ -20,7 +20,7 @@ class TaskList(generics.ListAPIView):
     serializer_class = TaskSerializer
 
 
-class CollectionDetail(generics.RetrieveAPIView):
+class CollectionDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Collection.objects.all()
     serializer_class = CollectionSerializer
 
@@ -29,6 +29,16 @@ class CollectionDetail(generics.RetrieveAPIView):
         return Collection.objects.get(pk=collection_pk)
 
     def get(self, request, *args, **kwargs):
+        """
+        L'héritage de la classe RetrieveUpdateDestroyAPIView permet de faire un get, un put et un delete.
+        J'ai redéfini le get pour qu'il puisse être synchronisé avec les tests unitaires. Sinon il est useless et
+        CollectionDetail fonctionne très bien sans
+
+        :param request:
+        :param args:
+        :param kwargs:
+        :return Response:
+        """
         try:
             collection = self.get_object()
             serializer = CollectionSerializer(collection)

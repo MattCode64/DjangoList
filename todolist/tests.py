@@ -39,6 +39,12 @@ class CollectionAPITests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         test_success(4)
 
+    def test_delete_collection(self):
+        url = reverse('collection-detail', args=[self.collection.id])
+        response = self.client.delete(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        test_success(8)
+
 
 class TaskAPITests(APITestCase):
     def setUp(self):
