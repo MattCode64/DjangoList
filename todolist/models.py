@@ -9,7 +9,8 @@ class Collection(models.Model):
     slug = models.SlugField(max_length=100, blank=True)
 
     def __str__(self):
-        return self.title
+        # Return all the information about the collection
+        return f"\nTitle: {self.title}\nSlug: {self.slug}"
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -27,7 +28,10 @@ class Task(models.Model):
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        # Return information about the task
+        string = (f"\nTitle: {self.title}\nSlug: {self.slug}\nDescription: {self.description}\nCompleted: "
+                  f"{self.completed}\nCreated: {self.created}\nCollection: {self.collection}")
+        return string
 
     def save(self, *args, **kwargs):
         if not self.slug:
