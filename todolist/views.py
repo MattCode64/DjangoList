@@ -8,7 +8,7 @@ from .serializers import CollectionSerializer, TaskSerializer
 
 # Create your views here.
 
-class CollectionList(generics.ListAPIView):
+class CollectionList(generics.ListCreateAPIView):
     # Display all collections
     queryset = Collection.objects.all()
     serializer_class = CollectionSerializer

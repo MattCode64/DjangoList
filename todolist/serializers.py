@@ -9,6 +9,12 @@ class CollectionSerializer(serializers.ModelSerializer):
         # fields = ['id', 'title', 'slug']
 
 
+class CollectionCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Collection
+        fields = ['title']
+
+
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
