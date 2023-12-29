@@ -74,5 +74,5 @@ Install also the following package:
 ### Conclusion
 
 This is a simple project that I made to learn Django and DRF.
-I really not get in deep with the frontend, but I will do it in the future maybe.
+I really not get in deep with the frontend, but I will do it in the future, maybe.
 I just coded the links between the frontend and the backend and display the data of collections.
