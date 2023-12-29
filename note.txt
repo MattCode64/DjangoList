@@ -1,0 +1,7 @@
+    # def get(self, request, *args, **kwargs):
+    #     try:
+    #         task = self.get_object()
+    #         serializer = TaskSerializer(task)
+    #         return Response(serializer.data)
+    #     except Task.DoesNotExist:
+    #         return Response({"TaskDetail": "Not found or does not exist."}, status=status.HTTP_404_NOT_FOUND)

@@ -30,8 +30,8 @@ This is a simple Django project (DRF) that allows you to create a list of items.
 ### Features
 
 - [x] Create a new collection
-- [ ] Delete an existing collection
-- [ ] Create a new task
+- [x] Delete an existing collection
+- [ ] Create a new task (in a collection)
 - [ ] Edit an existing task
 - [ ] Delete an existing task
 - [ ] Mark a task as complete

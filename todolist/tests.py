@@ -16,19 +16,19 @@ class CollectionAPITests(APITestCase):
 
     def test_list_collections(self):
         url = reverse('collection-list')
-        response = self.client.get(url, format='json')
+        response = self.client.retrieve(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         test_success(1)
 
     def test_detail_collection_success(self):
         url = reverse('collection-detail', args=[self.collection.id])
-        response = self.client.get(url, format='json')
+        response = self.client.retrieve(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         test_success(2)
 
     def test_detail_collection_not_found(self):
         url = reverse('collection-detail', args=[999])  # Un ID qui n'existe pas
-        response = self.client.get(url, format='json')
+        response = self.client.retrieve(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
         test_success(3)
 
@@ -53,18 +53,18 @@ class TaskAPITests(APITestCase):
 
     def test_list_tasks(self):
         url = reverse('task-list')
-        response = self.client.get(url, format='json')
+        response = self.client.retrieve(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         test_success(5)
 
     def test_detail_task_success(self):
         url = reverse('task-detail', args=[self.task.id])
-        response = self.client.get(url, format='json')
+        response = self.client.retrieve(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         test_success(6)
 
     def test_detail_task_not_found(self):
         url = reverse('task-detail', args=[999])
-        response = self.client.get(url, format='json')
+        response = self.client.retrieve(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
         test_success(7)
