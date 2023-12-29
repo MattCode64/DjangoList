@@ -4,7 +4,8 @@
 
 ## Description
 
-This is a simple Django project (DRF) that allows you to create a list of items. You can add, edit, and delete items from the list. You can also mark items as complete.
+This is a simple Django project (DRF) that allows you to create a list of items.
+You can add, edit, and delete items from the list. You can also mark items as complete.
 
 ---
 
@@ -44,3 +45,21 @@ This is a simple Django project (DRF) that allows you to create a list of items.
 2. Create a virtual environment: `python3 -m venv venv`
 3. Activate the virtual environment: `source venv/bin/activate`
 4. Install the requirements: `pip install -r requirements.txt`
+
+---
+
+### Frontend
+
+The frontend is built with Vue.js and is located in the `frontend` directory.
+To run the frontend, you must have Node.js installed, Vue CLI, and axios.
+
+1. Install Node.js: `sudo apt install nodejs`
+2. Install Vue CLI: `npm install -g @vue/cli`
+3. Create a new Vue project: `vue create .` or `vue create frontend`
+4. Install axios: `npm install axios` (in the `frontend` directory)
+
+Install also the following package:
+
+`pip install django-cors-headers` (in requirements.txt)
+
+---
