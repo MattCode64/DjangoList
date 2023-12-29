@@ -1,9 +1,21 @@
+<!--<template>-->
+<!--  <nav>-->
+<!--    <router-link to="/">Home</router-link> |-->
+<!--    <router-link to="/about">About</router-link>-->
+<!--  </nav>-->
+<!--  <router-view/>-->
+<!--</template>-->
+
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app">
+    <div>
+      <h1>DjangoList</h1>
+    </div>
+
+    <router-link to="/collections"></router-link>
+    <!-- autres liens de navigation -->
+    <router-view/>
+  </div>
 </template>
 
 <style>

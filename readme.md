@@ -63,3 +63,16 @@ Install also the following package:
 `pip install django-cors-headers` (in requirements.txt)
 
 ---
+
+### Run the project
+
+1. Run the backend: `python manage.py runserver`
+2. Run the frontend: `npm run serve` (in the `frontend` directory)
+
+---
+
+### Conclusion
+
+This is a simple project that I made to learn Django and DRF.
+I really not get in deep with the frontend, but I will do it in the future maybe.
+I just coded the links between the frontend and the backend and display the data of collections.
