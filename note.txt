@@ -1,7 +1,49 @@
-    # def get(self, request, *args, **kwargs):
-    #     try:
-    #         task = self.get_object()
-    #         serializer = TaskSerializer(task)
-    #         return Response(serializer.data)
-    #     except Task.DoesNotExist:
-    #         return Response({"TaskDetail": "Not found or does not exist."}, status=status.HTTP_404_NOT_FOUND)
+    def test_list_tasks(self):
+        url = reverse('task-list')
+        response = self.client.retrieve(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        test_success(5)
+
+    def test_detail_task_success(self):
+        url = reverse('task-detail', args=[self.task.id])
+        response = self.client.retrieve(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        test_success(6)
+
+    def test_detail_task_not_found(self):
+        url = reverse('task-detail', args=[999])
+        response = self.client.retrieve(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        test_success(7)
+
+
+            def test_list_collections(self):
+        url = reverse('collection-list')
+        response = self.client.retrieve(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        test_success(1)
+
+    def test_detail_collection_success(self):
+        url = reverse('collection-detail', args=[self.collection.id])
+        response = self.client.retrieve(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        test_success(2)
+
+    def test_detail_collection_not_found(self):
+        url = reverse('collection-detail', args=[999])  # Un ID qui n'existe pas
+        response = self.client.retrieve(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        test_success(3)
+
+    def test_create_collection(self):
+        url = reverse('collection-list')
+        data = {'title': 'New Collection Test'}
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        test_success(4)
+
+    def test_delete_collection(self):
+        url = reverse('collection-detail', args=[self.collection.id])
+        response = self.client.delete(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        test_success(8)
